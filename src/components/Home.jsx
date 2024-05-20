@@ -1,10 +1,10 @@
 
-function Home({allCars}) {
+function Home({allCars, handleSelection}) {
   return (
     <>
         <ul>
             {allCars.map((car, i)=>(
-                <li key={i}>{car.name}</li>
+                <li key={i} onClick={()=>handleSelection(car)}>{car.name}</li>
             ))}
         </ul>
     </>

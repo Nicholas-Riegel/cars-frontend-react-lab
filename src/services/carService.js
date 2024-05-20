@@ -22,7 +22,19 @@ const create = async (car) => {
     }
 }
 
+const deleteCar = async (carId) => {
+    try{
+        await fetch(BASE_URL+ `/${carId}`, {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json'},
+        })
+    }catch(err){
+        console.log(err);
+    }
+}
+
 export {
     index,
     create,
+    deleteCar
 }
