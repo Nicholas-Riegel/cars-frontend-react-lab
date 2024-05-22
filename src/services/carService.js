@@ -22,6 +22,19 @@ const create = async (car) => {
     }
 }
 
+const updateCar = async (car, carId) => {
+	try {
+		const res = await fetch(`${BASE_URL}/${carId}`, {
+			method: 'PUT',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify(car),
+		});
+		return res.json();
+	} catch (err) {
+		console.log(err);
+	}
+};
+
 const deleteCar = async (carId) => {
     try{
         await fetch(BASE_URL+ `/${carId}`, {
@@ -36,5 +49,6 @@ const deleteCar = async (carId) => {
 export {
     index,
     create,
+    updateCar,
     deleteCar
 }

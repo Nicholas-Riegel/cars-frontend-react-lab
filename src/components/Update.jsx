@@ -1,19 +1,16 @@
-import { useState } from 'react'
+import {useState} from 'react'
 
-function Create({handleCreate}) {
+function Update({handleUpdate, selectedCar}) {
 
-    const [car, setCar] = useState({
-        name: '',
-        description: ''
-    })
-
+    const [car, setCar] = useState(selectedCar)
+    
     const handleChange = (e) => {
         setCar({...car, [e.target.name]: e.target.value})
     }
-
+    
     const handleSubmit = (e) => {
         e.preventDefault()
-        handleCreate(car)
+        handleUpdate(car)
         setCar({
             name: '',
             description: ''
@@ -37,10 +34,10 @@ function Create({handleCreate}) {
                     id='description'
                     onChange={handleChange}
                     value={car.description} />
-                <button type='submit'>Submit</button>
+                <button type='submit'>Update</button>
             </form>
         </>
     )
 }
 
-export default Create
+export default Update
